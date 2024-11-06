@@ -1,14 +1,22 @@
 package fr.digi.m062024.entite;
 
+import jakarta.persistence.*;
+
+import java.io.Serializable;
 import java.util.List;
 
-public class Compte {
+@Entity
+@Table(name = "COMPTE")
+public class Compte implements Serializable {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
+    @Column(name = "Nom")
     private String nom;
+//    @ManyToOne
+//    @JoinColumn(name = "client_id")
+//    private Client client;
 
-    //@OneToMany(mappedBy = "banque")
-    // private List<Client> clients;
 
 
     public Compte() {
@@ -29,4 +37,11 @@ public class Compte {
     public void setNom(String nom) {
         this.nom = nom;
     }
+//    public List<Client> getClients() {
+//        return clients;
+//    }
+//
+//    public void setClients(List<Client> clients) {
+//        this.clients = clients;
+//    }
 }

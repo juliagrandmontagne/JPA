@@ -1,24 +1,31 @@
 package fr.digi.m062024.entite;
 
+import jakarta.persistence.*;
+
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
-
-public class Client {
-    // @Id
-    //@GeneratedValue(strategy = GenerationType.IDENTITY)
+@Entity
+@Table(name = "CLIENT")
+public class Client implements Serializable {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
+    @Column(name ="NOM")
     private String nom;
+    @Column(name ="PRENOM")
     private String prenom;
+    @Column(name ="DATEDENAISSANCE")
     private Date dateDeNaissance;
 
-    //@Embedded
-    // private Adresse adresse;
 
-    // @OneToMany(mappedBy = "client")
-    // private List<Compte> comptes;
+//    @ManyToOne
+//    @JoinColumn(name = "banque_id")
+//    private Banque banque;
 
-    // Constructeurs, getters et setters
+    @Embedded
+    private Adresse adresse;
+
     public Client() {
     }
 

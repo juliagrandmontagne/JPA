@@ -1,16 +1,19 @@
 package fr.digi.m062024.entite;
+import java.io.Serializable;
 import java.util.List;
 import jakarta.persistence.*;
 
 import java.util.Set;
-
-public class Banque {
-    //@Id
-   // @GeneratedValue(strategy = GenerationType.IDENTITY)
+@Entity
+@Table(name = "BANQUE")
+public class Banque implements Serializable {
+    @Id
+   @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(name ="NOM")
     private String nom;
-   // @OneToMany(mappedBy = "banque")
-   // private List<Client> clients;
+//    @OneToMany(mappedBy = "banque")
+//    private List<Client> clients;
 
     public Banque() {
     }

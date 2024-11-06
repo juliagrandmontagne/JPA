@@ -1,18 +1,17 @@
 package fr.digi.m062024.entite;
+
 import java.util.List;
-import jakarta.persistence.*;
 
-import java.util.Set;
-
-public class Banque {
-    //@Id
-   // @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class Compte {
     private Long id;
-    private String nom;
-   // @OneToMany(mappedBy = "banque")
-   // private List<Client> clients;
 
-    public Banque() {
+    private String nom;
+
+    //@OneToMany(mappedBy = "banque")
+    // private List<Client> clients;
+
+
+    public Compte() {
     }
 
     public Long getId() {

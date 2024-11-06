@@ -12,8 +12,8 @@ public class Banque implements Serializable {
     private Long id;
     @Column(name ="NOM")
     private String nom;
-//    @OneToMany(mappedBy = "banque")
-//    private List<Client> clients;
+    @OneToMany(mappedBy = "banque")
+    private Set<Client> clients;
 
     public Banque() {
     }

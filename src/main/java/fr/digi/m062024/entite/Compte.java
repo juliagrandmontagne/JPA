@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 
 import java.io.Serializable;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "COMPTE")
@@ -11,13 +12,14 @@ public class Compte implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(name = "Nom")
-    private String nom;
-//    @ManyToOne
-//    @JoinColumn(name = "client_id")
-//    private Client client;
-
-
+    @Column(name = "NUM")
+    private String numero;
+    @Column(name = "SOLDE")
+    private double solde;
+    @ManyToMany(mappedBy = "comptes")
+    private Set<Client> clients;
+    @OneToMany(mappedBy = "compte")
+    private Set<Operation> operations;
 
     public Compte() {
     }
@@ -30,18 +32,20 @@ public class Compte implements Serializable {
         this.id = id;
     }
 
-    public String getNom() {
-        return nom;
+
+    public Set<Operation> getOperations() {
+        return operations;
     }
 
-    public void setNom(String nom) {
-        this.nom = nom;
+    public void setOperations(Set<Operation> operations) {
+        this.operations = operations;
     }
-//    public List<Client> getClients() {
-//        return clients;
-//    }
-//
-//    public void setClients(List<Client> clients) {
-//        this.clients = clients;
-//    }
+
+    public Set<Client> getClients() {
+        return clients;
+    }
+
+    public void setClients(Set<Client> clients) {
+        this.clients = clients;
+    }
 }

@@ -5,8 +5,7 @@ import jakarta.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 
-@Entity
-@Table(name = "ADRESSE")
+@Embeddable
 public class Adresse implements Serializable {
 //    @Id
 //    @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -17,7 +16,8 @@ public class Adresse implements Serializable {
     private String rue;
     @Column(name ="VILLE")
     private String ville;
-
+    @Column(name ="CODE_POSTAL")
+    private int codePostale;
     public Adresse() {
     }
 

@@ -19,9 +19,9 @@ public class Operation implements Serializable {
     private double montant;
     @Column(name ="MOTIF")
     private String motif;
-//    @ManyToOne
-//    @JoinColumn(name = "compte_id")
-//    private Compte compte;
+    @ManyToOne
+    @JoinColumn(name = "ID-COMPTE")
+    private Compte compte;
 
 
 //    @ManyToOne
@@ -67,6 +67,26 @@ public class Operation implements Serializable {
 
     public void setMotif(String motif) {
         this.motif = motif;
+    }
+
+    public Compte getCompte() {
+        return compte;
+    }
+
+    public void setCompte(Compte compte) {
+        this.compte = compte;
+    }
+
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder("Operation{");
+        sb.append("id=").append(id);
+        sb.append(", date=").append(date);
+        sb.append(", montant=").append(montant);
+        sb.append(", motif='").append(motif).append('\'');
+        sb.append(", compte=").append(compte);
+        sb.append('}');
+        return sb.toString();
     }
 }
 

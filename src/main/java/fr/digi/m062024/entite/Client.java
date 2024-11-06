@@ -5,6 +5,8 @@ import jakarta.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
+
 @Entity
 @Table(name = "CLIENT")
 public class Client implements Serializable {
@@ -15,14 +17,18 @@ public class Client implements Serializable {
     private String nom;
     @Column(name ="PRENOM")
     private String prenom;
-    @Column(name ="DATEDENAISSANCE")
+    @Column(name ="DATE_NAISSANCE")
     private Date dateDeNaissance;
 
 
-//    @ManyToOne
-//    @JoinColumn(name = "banque_id")
-//    private Banque banque;
-
+    @ManyToOne
+    @JoinColumn(name = "ID-BANQUE")
+    private Banque banque;
+    @ManyToMany
+    @JoinTable(name = "CLIENT_BANQUE",
+    joinColumns =@JoinColumn(name = "ID-Client", referencedColumnName = "ID"),
+    inverseJoinColumns = @JoinColumn(name = "ID_COMPTE", referencedColumnName = "ID"))
+    private Set<Compte> comptes;
     @Embedded
     private Adresse adresse;
 

@@ -23,11 +23,6 @@ public class Operation implements Serializable {
     @JoinColumn(name = "ID-COMPTE")
     private Compte compte;
 
-
-//    @ManyToOne
-//    @JoinColumn(name = "virement_id")
-//    private Virement virement;
-
     public Operation() {
     }
 

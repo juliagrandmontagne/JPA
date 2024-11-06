@@ -9,6 +9,7 @@ import java.util.Locale;
 
 @Entity
 @Table(name = "OPERATION")
+@Inheritance(strategy = InheritanceType.JOINED)
 public class Operation implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

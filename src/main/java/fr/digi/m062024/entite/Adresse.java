@@ -44,4 +44,12 @@ public class Adresse implements Serializable {
     public void setVille(String ville) {
         this.ville = ville;
     }
+
+    public int getCodePostale() {
+        return codePostale;
+    }
+
+    public void setCodePostale(int codePostale) {
+        this.codePostale = codePostale;
+    }
 }

@@ -73,4 +73,27 @@ public class Client implements Serializable {
         this.dateDeNaissance = dateDeNaissance;
     }
 
+    public Banque getBanque() {
+        return banque;
+    }
+
+    public void setBanque(Banque banque) {
+        this.banque = banque;
+    }
+
+    public Set<Compte> getComptes() {
+        return comptes;
+    }
+
+    public void setComptes(Set<Compte> comptes) {
+        this.comptes = comptes;
+    }
+
+    public Adresse getAdresse() {
+        return adresse;
+    }
+
+    public void setAdresse(Adresse adresse) {
+        this.adresse = adresse;
+    }
 }

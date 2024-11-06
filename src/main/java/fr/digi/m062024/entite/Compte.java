@@ -8,6 +8,7 @@ import java.util.Set;
 
 @Entity
 @Table(name = "COMPTE")
+@Inheritance(strategy = InheritanceType.JOINED)
 public class Compte implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -47,5 +48,21 @@ public class Compte implements Serializable {
 
     public void setClients(Set<Client> clients) {
         this.clients = clients;
+    }
+
+    public String getNumero() {
+        return numero;
+    }
+
+    public void setNumero(String numero) {
+        this.numero = numero;
+    }
+
+    public double getSolde() {
+        return solde;
+    }
+
+    public void setSolde(double solde) {
+        this.solde = solde;
     }
 }

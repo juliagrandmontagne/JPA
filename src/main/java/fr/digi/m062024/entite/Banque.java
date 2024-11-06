@@ -33,4 +33,12 @@ public class Banque implements Serializable {
     public void setNom(String nom) {
         this.nom = nom;
     }
+
+    public Set<Client> getClients() {
+        return clients;
+    }
+
+    public void setClients(Set<Client> clients) {
+        this.clients = clients;
+    }
 }
